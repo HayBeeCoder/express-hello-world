@@ -1,7 +1,16 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 const port = process.env.PORT || 3001;
-
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res;
+});
 app.get("/", (req, res) => res.type("html").send(html));
 app.get("/details", (req, res) => {
   const response = {
